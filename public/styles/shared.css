@@ -1,5 +1,5 @@
 :root {
-    --color-contast-main: #00aaff;
+    --color-contast-main: #00c3ff;
     --color-grey-100: #f5f5f5;
     --color-grey-200: #d9d9d9;
     --color-grey-300: #bfbfbf;
@@ -115,4 +115,9 @@
     margin: 0;
     padding: 0;
     align-items: center;
+    filter: invert(60%);
+  }
+
+  footer a:hover { 
+    filter: invert(80%) sepia(98%) saturate(593%) hue-rotate(153deg) brightness(106%) contrast(104%);
   }
