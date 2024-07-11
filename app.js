@@ -20,5 +20,8 @@ app.get('/join', (req, res) => {
 app.get('/login', (req, res) => {
   res.render('shared/login', { title: 'Login!' });
 });
+app.get('/mypage', (req, res) => {
+  res.render('client/mypage', { title: 'WelcomeBack' });
+});
 
 app.listen(3000);
