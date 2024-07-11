@@ -1,5 +1,6 @@
   .signup-container,
-  .login-container {
+  .login-container,
+  .contactform-container {
     background-color: var(--color-grey-100);
     padding: 20px;
     border-radius: 12px;
@@ -11,7 +12,8 @@
   }
   
   .signup-container h2,
-  .login-container h2 {
+  .login-container h2,
+  .contactform-container h2 {
     margin-bottom: 20px;
     margin-top: 0;
     color: var(--color-grey-300);
@@ -48,7 +50,8 @@
   
   /* Signup button */
   .signup-btn,
-  .login-btn {
+  .login-btn,
+  .send-btn {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -63,7 +66,8 @@
   }
   
   .signup-btn:hover,
-  .login-btn:hover {
+  .login-btn:hover
+  .send-btn:hover {
     background-color: var(--color-contast-main);
     box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
     color: white;

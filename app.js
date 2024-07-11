@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
   res.render('shared/landing-page', { title: 'Become PRO in CLO!' });
 });
 
+app.get('/contact', (req, res) => {
+  res.render('shared/contact', { title: 'Get in touch!' });
+});
 app.get('/join', (req, res) => {
   res.render('shared/join', { title: 'Signup!' });
 });
