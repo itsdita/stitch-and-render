@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.19.2"
   },
   "name": "stitch-and-render",
@@ -11,7 +12,6 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-
   "keywords": [],
   "author": "Dita Varna Yoshimura",
   "license": "ISC",

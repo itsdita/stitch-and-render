@@ -1,0 +1,90 @@
+.neumorphism {
+    background: #e0e0e0;
+    box-shadow: 9px 9px 16px #bebebe, -9px -9px 16px #ffffff;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+  }
+  
+  /* Signup container */
+  .signup-container {
+    background-color: var(--color-grey-100);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin: 50px auto;
+  }
+  
+  .signup-container h2 {
+    margin-bottom: 20px;
+    color: var(--color-grey-300);
+  }
+  
+  /* Input groups */
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-grey-300);
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+    background: var(--color-grey-100);
+    box-shadow: inset 3px 3px 3px var(--color-grey-200), inset -3px -3px 3px white;
+    border: none;
+    outline: none;
+  }
+  
+  .input-group input:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  /* Signup button */
+  .signup-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--color-grey-100);
+    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+    color: var(--color-grey-300);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border: none;
+    outline: none;
+  }
+  
+  .signup-btn:hover {
+    background-color: var(--color-contast-main);
+    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+    color: white;
+  }
+  
+  /* Login link */
+  .login-link {
+    margin-top: 20px;
+    color: var(--color-grey-300);
+  }
+  
+  .login-link a {
+    color: var(--color-contast-main);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .login-link a:hover {
+    font-weight: bolder;
+  }
