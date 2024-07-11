@@ -44,9 +44,11 @@
   }
   
   nav {
+    max-width: 1024px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0 auto;
     padding: 0 20px;
     background-color: var(--color-grey-200);
   }
@@ -74,13 +76,16 @@
   }
   
   #slogan {
+    max-width: 1024px;
     text-align: center;
+    margin: 0 auto;
     padding: 20px;
     background-color: var(--color-grey-300);
   }
   
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
+    margin: 0;
   }
   
   h2 {
