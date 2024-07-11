@@ -40,7 +40,7 @@
   
   main {
     flex: 1;
-    background-color: var(--color-grey-100);
+    /*background-color: var(--color-grey-100);*/
   }
   
   nav {
@@ -50,7 +50,7 @@
     align-items: center;
     margin: 0 auto;
     padding: 0 20px;
-    background-color: var(--color-grey-200);
+    /*background-color: var(--color-grey-200);*/
   }
   
   #nav-items {
@@ -80,7 +80,7 @@
     text-align: center;
     margin: 0 auto;
     padding: 20px;
-    background-color: var(--color-grey-300);
+    /*background-color: var(--color-grey-300);*/
   }
   
   h1 {
@@ -88,8 +88,9 @@
     margin: 0;
   }
   
-  h2 {
+  footer h2 {
     font-size: 1.5rem;
+    margin: 0;
   }
   
   footer {
@@ -97,13 +98,13 @@
     position: relative;
     bottom: 0;
     width: 100%;
-    background-color: var(--color-grey-300);
+    /*background-color: var(--color-grey-300);*/
     padding: 0;
     margin: 0;
   }
   
   footer div {
-    background-color: var(--color-grey-200);
+    /*background-color: var(--color-grey-200);*/
     margin: 0;
     padding: 10px 0;
     align-items: center;

@@ -1,0 +1,48 @@
+<%- include ("includes/head", {pageTitle: "Signup!" })%>
+  </head>
+
+  <body>
+    <%- include ("includes/header") %>
+
+      <main>
+        <section id="slogan">
+          <h2>let's get to work!</h2>
+        </section>
+
+        <section>
+          <div class="signup-container">
+            <h2>sign up</h2>
+            <form action="#">
+              <div class="input-group">
+                <label for="username">username</label>
+                <input type="text" id="username" name="username" required>
+              </div>
+              <div class="input-group">
+                <label for="email">email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="input-group">
+                <label for="confirm-email">confirm email</label>
+                <input type="email" id="confirm-email" name="confirm-email" required>
+              </div>
+              <div class="input-group">
+                <label for="password">password</label>
+                <input type="password" id="password" name="password" required>
+              </div>
+              <div class="input-group">
+                <label for="confirm-password">confirm password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+              </div>
+              <button type="submit" class="signup-btn">sign up</button>
+            </form>
+            <p class="login-link">already have an account? <a href="#">LOG IN</a></p>
+          </div>
+        </section>
+      </main>
+
+      <%- include ("includes/footer") %>
+    
+
+  </body>
+
+  </html>

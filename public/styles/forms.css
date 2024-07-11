@@ -1,4 +1,5 @@
-  .signup-container {
+  .signup-container,
+  .login-container {
     background-color: var(--color-grey-100);
     padding: 20px;
     border-radius: 12px;
@@ -6,11 +7,13 @@
     width: 100%;
     max-width: 400px;
     text-align: center;
-    margin: 50px auto;
+    margin: 10px auto 50px auto;
   }
   
-  .signup-container h2 {
+  .signup-container h2,
+  .login-container h2 {
     margin-bottom: 20px;
+    margin-top: 0;
     color: var(--color-grey-300);
   }
   
@@ -44,7 +47,8 @@
   }
   
   /* Signup button */
-  .signup-btn {
+  .signup-btn,
+  .login-btn {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -58,24 +62,28 @@
     outline: none;
   }
   
-  .signup-btn:hover {
+  .signup-btn:hover,
+  .login-btn:hover {
     background-color: var(--color-contast-main);
     box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
     color: white;
   }
   
   /* Login/Signup link */
-  .login-link {
+  .login-link,
+  .signup-link {
     margin-top: 20px;
     color: var(--color-grey-300);
   }
   
-  .login-link a {
+  .login-link a,
+  .signup-link a {
     color: var(--color-contast-main);
     text-decoration: none;
     transition: color 0.3s;
   }
   
-  .login-link a:hover {
+  .login-link a:hover,
+  .signup-link a:hover {
     font-weight: bolder;
   }

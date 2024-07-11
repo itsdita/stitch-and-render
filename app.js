@@ -11,4 +11,11 @@ app.get('/', (req, res) => {
   res.render('shared/landing-page', { title: 'Become PRO in CLO!' });
 });
 
+app.get('/join', (req, res) => {
+  res.render('shared/join', { title: 'Signup!' });
+});
+app.get('/login', (req, res) => {
+  res.render('shared/login', { title: 'Login!' });
+});
+
 app.listen(3000);
