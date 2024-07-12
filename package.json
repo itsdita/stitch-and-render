@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "connect-mongodb-session": "^2.4.1",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "mongodb": "^6.8.0"
   },
   "name": "stitch-and-render",

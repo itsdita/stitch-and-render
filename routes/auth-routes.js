@@ -8,13 +8,6 @@ const ObjectId = mongodb.ObjectId;
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("shared/landing-page", { title: "Become PRO in CLO!" });
-});
-
-router.get("/contact", (req, res) => {
-  res.render("shared/contact", { title: "Get in touch!" });
-});
 
 router.get("/join", (req, res) => {
   res.render("shared/join", { title: "Signup!" });
@@ -27,6 +20,31 @@ router.post("/join", async function (req, res) {
   const confirmEmail = userData["confirm-email"];
   const password = userData.password;
   const confirmPassword = userData["confirm-password"];
+
+  //data validation
+  if (
+    !username ||
+    !email ||
+    !confirmEmail ||
+    !password ||
+    password.trim().length < 6 || //removing blanks/spaces with .trim()
+    email !== confirmEmail ||
+    password !== confirmPassword ||
+    !email.includes("@")
+  ) {
+    console.log("User input contains invalid data!");
+    return res.redirect("/join");
+  }
+
+  const existingUserCheck = await db
+    .getDb()
+    .collection("users")
+    .findOne({ email: email });
+  
+  if (existingUserCheck) {
+    console.log("User exists already!");
+    return res.redirect("/join");
+  }
 
   const hashedPassword = await bcrypt.hash(password, 12);
 
@@ -57,27 +75,30 @@ router.post("/login", async function (req, res) {
     .findOne({ email: email });
 
   if (!existingUserCheck) {
-    console.log('Could not log in!');
-    return res.redirect('/login');
+    console.log("Could not log in!");
+    return res.redirect("/login");
   }
 
   //compare entered password with hashed password
-  const passwordsAreEqual = await bcrypt.compare(password, existingUserCheck.password);
+  const passwordsAreEqual = await bcrypt.compare(
+    password,
+    existingUserCheck.password
+  );
 
   if (!passwordsAreEqual) {
-    console.log('Could not log in - paswords don\'t match!');
-    return res.redirect('/login');
+    console.log("Could not log in - paswords don't match!");
+    return res.redirect("/login");
   }
 
-  console.log('User is authenticated');
-  res.redirect('/mypage');
+  console.log("User is authenticated");
+  res.redirect("/mypage");
 });
 
 router.get("/mypage", (req, res) => {
-  res.render("client/mypage", { title: "WelcomeBack" });
+  res.render("client/mypage", { title: "WelcomeBack!" });
 });
-router.get("/500", (req, res) => {
-  res.render("500", { title: "500error" });
-});
+router.get("/admin", (req, res) => {
+    res.render("admin/admin-page", { title: "Admin area!" });
+  });
 
 module.exports = router;
