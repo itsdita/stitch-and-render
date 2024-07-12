@@ -31,7 +31,8 @@
     color: var(--color-grey-300);
   }
   
-  .input-group input {
+  .input-group input, 
+  .input-group textarea {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -40,7 +41,9 @@
     background: var(--color-grey-100);
     box-shadow: inset 3px 3px 3px var(--color-grey-200), inset -3px -3px 3px white;
     border: none;
+    resize:none;
     outline: none;
+    font-family: inherit;
   }
   
   .input-group input:focus {
