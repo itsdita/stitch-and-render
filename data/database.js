@@ -10,7 +10,7 @@ let database;
 
 async function connect() {
   const client = await MongoClient.connect("mongodb://localhost:27017");
-  database = client.db("userData");
+  database = client.db("stitchAndRender");
 }
 
 function getDb() {
