@@ -2,8 +2,15 @@
   </head>
 
   <body>
-    <%- include ("../shared/includes/header", {pageName: "myPage"})%>
-
+    <%- include ("../shared/includes/header", {pageName:"myPage"}) %>
+            <div>
+              <form action="/logout" method="POST">
+                <button>logout</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
       <main>
         <section id="slogan">
           <h1>welcome back!</h1>

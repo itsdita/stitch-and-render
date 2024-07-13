@@ -2,8 +2,15 @@
   </head>
 
   <body>
-    <%- include ("../shared/includes/header", {pageName: "admin"})%>
-
+    <%- include ("../shared/includes/header", {pageName:"admin"}) %>
+            <div>
+              <form action="/logout" method="POST">
+                <button>logout</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </header>
       <main>
         <section id="slogan">
           <h1>here is admin area</h1>

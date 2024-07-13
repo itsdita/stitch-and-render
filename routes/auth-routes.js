@@ -69,12 +69,12 @@ router.post("/login", async function (req, res) {
   const password = userData.password;
 
   //check if user exists
-  const existingUserCheck = await db
+  const existingUser = await db
     .getDb()
     .collection("users")
     .findOne({ email: email });
 
-  if (!existingUserCheck) {
+  if (!existingUser) {
     console.log("Could not log in!");
     return res.redirect("/login");
   }
@@ -82,7 +82,7 @@ router.post("/login", async function (req, res) {
   //compare entered password with hashed password
   const passwordsAreEqual = await bcrypt.compare(
     password,
-    existingUserCheck.password
+    existingUser.password
   );
 
   if (!passwordsAreEqual) {
@@ -90,15 +90,29 @@ router.post("/login", async function (req, res) {
     return res.redirect("/login");
   }
 
-  console.log("User is authenticated");
-  res.redirect("/mypage");
+  //storing authentication data in session
+  req.session.user = {id: existingUser._id.toString(), email: existingUser.email};
+  req.session.isAuthenticated = true;
+  req.session.save(function(){
+    res.redirect("/mypage"); //will execute only when session data is saved
+  });
+  
 });
 
 router.get("/mypage", (req, res) => {
   res.render("client/mypage", { title: "WelcomeBack!" });
 });
-router.get("/admin", (req, res) => {
+router.get("/admin", function (req, res) {
+    if (!req.session.isAuthenticated) {
+      return res.status(401).render('401');//typical status code for denied access
+    }
     res.render("admin/admin-page", { title: "Admin area!" });
+  });
+
+  router.post("/logout", (req, res) => {
+    req.session.user = null; //clearing user data in session
+    req.session.isAuthenticated = false;
+    res.render("shared/landing-page", { title: "Become PRO in CLO!" });
   });
 
 module.exports = router;
