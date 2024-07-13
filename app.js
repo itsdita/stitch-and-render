@@ -38,6 +38,12 @@ app.use(
   })
 );
 
+// Middleware to make isAuthenticated available in views
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isAuthenticated;
+  next();
+});
+
 app.use(authRoutes);
 app.use(publicRoutes);
 

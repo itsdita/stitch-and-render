@@ -2,7 +2,11 @@
   </head>
 
   <body>
-    <%- include ("./shared/includes/header", {pageName:"login"}) %>
+    <% if (!isAuthenticated) { %>
+      <%- include ("./shared/includes/header") %>
+    <% } else { %>
+      <%- include ("./client/includes/client-header") %>
+    <% } %>
 
       <main>
         <section id="slogan">

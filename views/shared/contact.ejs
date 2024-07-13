@@ -2,14 +2,12 @@
   </head>
 
   <body>
-    <%- include ("includes/header", {pageName:"JOIN"}) %>
-            <div>
-              <a href="/login">login</a>
-            </div>
-          </div>
-        </nav>
-      </header>
-      
+    <% if (!isAuthenticated) { %>
+      <%- include ("includes/header") %>
+    <% } else { %>
+      <%- include ("../client/includes/client-header") %>
+    <% } %>
+
       <main>
         <section id="slogan">
           <h2>get in touch!</h2>

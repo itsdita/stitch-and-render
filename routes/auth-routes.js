@@ -99,20 +99,31 @@ router.post("/login", async function (req, res) {
   
 });
 
+// Protected route
 router.get("/mypage", (req, res) => {
-  res.render("client/mypage", { title: "WelcomeBack!" });
-});
-router.get("/admin", function (req, res) {
-    if (!req.session.isAuthenticated) {
-      return res.status(401).render('401');//typical status code for denied access
-    }
-    res.render("admin/admin-page", { title: "Admin area!" });
+  if (!req.session.isAuthenticated) {
+    return res.status(401).redirect('/login'); // Redirect to login if not authenticated
+  }
+  res.render("client/mypage", { 
+    title: "WelcomeBack!",
+    isAuthenticated: req.session.isAuthenticated // Pass authentication status to view
   });
+});
+
+router.get("/admin", function (req, res) {
+  if (!req.session.isAuthenticated) {
+    return res.status(401).render('401'); // Typical status code for denied access
+  }
+  res.render("admin/admin-page", { 
+    title: "Admin area!",
+    isAuthenticated: req.session.isAuthenticated // Pass authentication status to view
+  });
+});
 
   router.post("/logout", (req, res) => {
     req.session.user = null; //clearing user data in session
     req.session.isAuthenticated = false;
-    res.render("shared/landing-page", { title: "Become PRO in CLO!" });
+    res.redirect("/");
   });
 
 module.exports = router;

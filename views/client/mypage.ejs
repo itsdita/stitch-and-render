@@ -2,15 +2,12 @@
   </head>
 
   <body>
-    <%- include ("../shared/includes/header", {pageName:"myPage"}) %>
-            <div>
-              <form action="/logout" method="POST">
-                <button>logout</button>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </header>
+    <% if (!isAuthenticated) { %>
+      <%- include ("includes/header") %>
+    <% } else { %>
+      <%- include ("../client/includes/client-header") %>
+    <% } %>
+
       <main>
         <section id="slogan">
           <h1>welcome back!</h1>
