@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const mongoDBStore = require("connect-mongodb-session");
+const { ObjectId } = require('mongodb');
 
 const db = require("./data/database");
 const authRoutes = require("./routes/auth-routes");
@@ -32,15 +33,33 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: sessionStore,
-    cookie:{
-      maxAge: 30 * 24 * 60 * 60 * 1000 //30 days; if no date set, cookie doesn't expire
-    }
+    cookie: {
+      maxAge: 30 * 24 * 60 * 60 * 1000, //30 days; if no date set, cookie doesn't expire
+    },
   })
 );
 
-// Middleware to make isAuthenticated available in views
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.session.isAuthenticated;
+// Middleware to make variables available in views
+app.use(async function(req, res, next) {
+  //res.locals.isAuthenticated = req.session.isAuthenticated;
+
+  const user = req.session.user;
+  const isAuth = req.session.isAuthenticated;
+
+  if (!user || !isAuth) {
+    return next(); //start the next middleware
+  }
+
+  const userDoc = await db
+    .getDb()
+    .collection("users")
+    .findOne({ _id: new ObjectId(user.id) });
+  const isAdmin = userDoc.isAdmin;
+
+  //global variables available in all the templates
+  res.locals.isAuth = isAuth;
+  res.locals.isAdmin = isAdmin || false;;
+
   next();
 });
 

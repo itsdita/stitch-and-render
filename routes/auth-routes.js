@@ -175,8 +175,7 @@ router.get("/mypage", (req, res) => {
     return res.status(401).redirect("/login"); // Redirect to login if not authenticated
   }
   res.render("client/mypage", {
-    title: "WelcomeBack!",
-    isAuthenticated: req.session.isAuthenticated, // Pass authentication status to view
+    title: "WelcomeBack!"
   });
 });
 
@@ -195,8 +194,7 @@ router.get("/admin", async function (req, res) {
   }
 
   res.render("admin/admin-page", {
-    title: "Admin area!",
-    isAuthenticated: req.session.isAuthenticated, // Pass authentication status to view
+    title: "Admin area!"
   });
 });
 
