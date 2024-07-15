@@ -21,7 +21,7 @@ router.get("/join", (req, res) => {
       confirmPassword: "",
     };
   }
-  
+
   //flashing - clear data stored in session, so input doesn't show up all the time
   req.session.inputData = null;
 
@@ -71,8 +71,19 @@ router.post("/join", async function (req, res) {
     .findOne({ email: email });
 
   if (existingUserCheck) {
-    console.log("User exists already!");
-    return res.redirect("/join");
+    req.session.inputData = {
+      hasError: true,
+      message: "User already exists!",
+      username: username,
+      email: email,
+      confirmEmail: confirmEmail,
+      password: password,
+      confirmPassword: confirmPassword,
+    };
+    req.session.save(function () {
+      res.redirect("/join");
+    });
+    return;
   }
 
   const hashedPassword = await bcrypt.hash(password, 12);
@@ -89,7 +100,18 @@ router.post("/join", async function (req, res) {
 });
 
 router.get("/login", (req, res) => {
-  res.render("shared/login", { title: "Login!" });
+  let sessionInputData = req.session.inputData;
+
+  if (!sessionInputData) {
+    sessionInputData = {
+      hasError: false,
+      email: "",
+      password: "",
+    };
+  }
+
+  req.session.inputData = null;
+  res.render("shared/login", { inputData: sessionInputData, title: "Login!" });
 });
 
 router.post("/login", async function (req, res) {
@@ -104,8 +126,16 @@ router.post("/login", async function (req, res) {
     .findOne({ email: email });
 
   if (!existingUser) {
-    console.log("Could not log in!");
-    return res.redirect("/login");
+    req.session.inputData = {
+      hasError: true,
+      message: "Could not log you in - please check your credentials!",
+      email: email,
+      password: password,
+    };
+    req.session.save(function () {
+      res.redirect("/login");
+    });
+    return;
   }
 
   //compare entered password with hashed password
@@ -115,8 +145,17 @@ router.post("/login", async function (req, res) {
   );
 
   if (!passwordsAreEqual) {
-    console.log("Could not log in - paswords don't match!");
-    return res.redirect("/login");
+    req.session.inputData = {
+      hasError: true,
+      message: "Could not log you in - please check your credentials!",
+      email: email,
+      password: password,
+    };
+
+    req.session.save(function () {
+      res.redirect("/login");
+    });
+    return;
   }
 
   //storing authentication data in session
@@ -141,10 +180,20 @@ router.get("/mypage", (req, res) => {
   });
 });
 
-router.get("/admin", function (req, res) {
+router.get("/admin", async function (req, res) {
   if (!req.session.isAuthenticated) {
     return res.status(401).render("401"); // Typical status code for denied access
   }
+
+  const user = await db
+    .getDb()
+    .collection("users")
+    .findOne({ _id: ObjectId.createFromHexString(req.session.user.id) });
+
+  if (!user || !user.isAdmin) {
+    return res.status(403).render("403");
+  }
+
   res.render("admin/admin-page", {
     title: "Admin area!",
     isAuthenticated: req.session.isAuthenticated, // Pass authentication status to view

@@ -1,0 +1,22 @@
+<%- include ("./shared/includes/head", {pageTitle: "403 Error" })%>
+  </head>
+
+  <body>
+    <% if (!isAuthenticated) { %>
+      <%- include ("./shared/includes/header") %>
+    <% } else { %>
+      <%- include ("./client/includes/client-header") %>
+    <% } %>
+
+      <main>
+        <section id="slogan">
+          <h1>unlock your inner PRO!</h1>
+        </section>
+          <p>You are not authorized!</p>
+      </main>
+      <%- include ("./shared/includes/footer") %>
+    
+
+  </body>
+
+  </html>
