@@ -171,8 +171,8 @@ router.post("/login", async function (req, res) {
 
 // Protected route
 router.get("/mypage", (req, res) => {
-  if (!req.session.isAuthenticated) {
-    return res.status(401).redirect("/login"); // Redirect to login if not authenticated
+  if (!res.locals.isAuth) {
+    return res.status(401).render("/login"); // Redirect to login if not authenticated
   }
   res.render("client/mypage", {
     title: "WelcomeBack!"
@@ -180,16 +180,11 @@ router.get("/mypage", (req, res) => {
 });
 
 router.get("/admin", async function (req, res) {
-  if (!req.session.isAuthenticated) {
+  if (!res.locals.isAuth) {
     return res.status(401).render("401"); // Typical status code for denied access
   }
 
-  const user = await db
-    .getDb()
-    .collection("users")
-    .findOne({ _id: ObjectId.createFromHexString(req.session.user.id) });
-
-  if (!user || !user.isAdmin) {
+  if (!res.locals.isAdmin) {
     return res.status(403).render("403");
   }
 
