@@ -2,6 +2,7 @@ const path = require("path");
 
 const express = require("express");
 const session = require("express-session");
+const bodyParser = require("body-parser");
 const mongoDBStore = require("connect-mongodb-session");
 const { ObjectId } = require('mongodb');
 
@@ -24,7 +25,8 @@ const sessionStore = new MongoDBStore({
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.use(express.urlencoded({ extended: true })); // Parse incoming request bodies
+app.use(express.urlencoded({ extended: true }));// Parse incoming request bodies
+app.use(bodyParser.json()); 
 app.use(express.static("public")); // Serve static files (e.g. CSS files)
 
 app.use(

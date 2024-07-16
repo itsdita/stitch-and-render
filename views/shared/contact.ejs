@@ -12,7 +12,7 @@
         <section>
           <div class="contactform-container">
             <h2>contact form</h2>
-            <form action="#">
+            <form action="/contact" method="POST">
               <div class="input-group">
                 <label for="name">name</label>
                 <input type="text" id="name" name="name" required>
@@ -26,10 +26,10 @@
                 <input type="text" id="subject" name="subject" required>
               </div>
               <div class="input-group">
-                <label for="message">subject</label>
+                <label for="message">message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
               </div>
-              <button type="submit" class="send-btn">send</button>
+              <button class="send-btn">send</button>
             </form>
           </div>
         </section>
