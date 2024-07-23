@@ -24,6 +24,14 @@ router.get("/", (req, res) => {
   res.render("shared/landing-page", { title: "Become PRO in CLO!" });
 });
 
+router.get("/about", (req, res) => {
+  res.render("shared/about", { title: "Who am I?" });
+});
+
+router.get("/videos", (req, res) => {
+  res.render("shared/videos", { title: "CLO tutorial treasure chest!" });
+});
+
 router.get("/blog", async function (req, res) {
   const posts = await db.getDb().collection("posts").find().toArray();//fetching posts data
   res.render("shared/blog", { title: "Some Deep 3D Thoughts.", posts: posts });//in {} data passed to template
@@ -73,13 +81,13 @@ router.post("/contact", async function (req, res) {
 
 //GET error pages
 router.get("/401", (req, res) => {
-  res.render("401");
+  res.render("401", { title: "401" });
 });
 router.get("/403", (req, res) => {
-  res.render("403");
+  res.render("403", { title: "403" });
 });
 router.get("/500", (req, res) => {
-  res.render("500");
+  res.render("500", { title: "500" });
 });
 
 module.exports = router;

@@ -25,7 +25,7 @@ router.get("/join", (req, res) => {
   //flashing - clear data stored in session, so input doesn't show up all the time
   req.session.inputData = null;
 
-  res.render("shared/join", { inputData: sessionInputData });
+  res.render("shared/join", { inputData: sessionInputData, title: "Signup!" });
 });
 
 router.post("/join", async function (req, res) {
@@ -175,7 +175,7 @@ router.get("/mypage", (req, res) => {
     return res.status(401).render("/login"); // Redirect to login if not authenticated
   }
   res.render("client/mypage", {
-    title: "WelcomeBack!"
+    title: "Welcome Back!"
   });
 });
 

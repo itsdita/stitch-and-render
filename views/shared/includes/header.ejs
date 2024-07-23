@@ -13,9 +13,11 @@
         <div>
           <a href="/blog">blog</a>
         </div>
+        <% if (!locals.isAdmin) {%>
         <div>
           <a href="/contact">contact</a>
         </div>
+        <% } %>
         <% if (locals.isAdmin) {%>
         <div>
           <a href="/admin">admin</a>
@@ -25,13 +27,8 @@
           <div>
             <a href="/mypage">myPage</a>
           </div>
-          <div>
-            <form id="logout-form" action="/logout" method="POST">
-              <button type="submit">logout</button>
-            </form>
-          </div>
         <% } %>
-        <% if (locals.isAuth && locals.isAdmin) {%>
+        <% if (locals.isAuth || locals.isAdmin) {%>
         <div>
           <form id="logout-form" action="/logout" method="POST">
             <button class="basic-btn" type="submit">logout</button>
