@@ -47,10 +47,8 @@
     outline: none;
   }
   
-  /* Signup button */
-  .signup-btn,
-  .login-btn,
-  .send-btn {
+  /* button styling */
+  .basic-btn {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -64,9 +62,7 @@
     outline: none;
   }
   
-  .signup-btn:hover,
-  .login-btn:hover
-  .send-btn:hover {
+  .basic-btn:hover {
     background-color: var(--color-contast-main);
     box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
     color: white;
