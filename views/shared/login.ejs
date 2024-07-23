@@ -6,12 +6,12 @@
     <%- include ("includes/header") %>
 
       <main>
-        <section id="slogan">
-          <h2>let's get to work!</h2>
+        <section class="page-title">
+          <h1>let's get to work!</h1>
         </section>
 
         <section>
-          <div class="login-container">
+          <div class="basic-container">
             <h2>log in</h2>
             <% if (inputData.hasError) {%>
               <P><%= inputData.message %></P>

@@ -1,6 +1,4 @@
-  .signup-container,
-  .login-container,
-  .contactform-container {
+  .basic-container {
     background-color: var(--color-grey-100);
     padding: 20px;
     border-radius: 12px;
@@ -11,9 +9,7 @@
     margin: 10px auto 50px auto;
   }
   
-  .signup-container h2,
-  .login-container h2,
-  .contactform-container h2 {
+  .basic-container h2 {
     margin-bottom: 20px;
     margin-top: 0;
     color: var(--color-grey-300);

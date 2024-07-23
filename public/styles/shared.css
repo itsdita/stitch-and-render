@@ -75,7 +75,7 @@
     font-weight: bold;
   }
   
-  #slogan {
+ .page-title {
     max-width: 1024px;
     text-align: center;
     margin: 0 auto;

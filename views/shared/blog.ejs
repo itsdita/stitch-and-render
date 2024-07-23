@@ -1,0 +1,27 @@
+<%- include ("includes/head", {pageTitle: "Deep 3D Thoughts." })%>
+  </head>
+  <body>
+    <%- include ("includes/header") %>
+      <main>
+
+        <section class="page-title">
+          <h1>my deep 3D thoughts</h1>
+        </section>
+
+        <section>
+          <% if (!posts || posts.length === 0) {%>
+              <p>No posts found - maybe start creating some?</p>
+            <% } else {%>
+              <% for (const post of posts) {%>
+              <div class="basic-container">
+                <h2><%= post.title %></h2>
+                <p><%= post.content %></p>
+              </div>
+              <% } %>
+            <% } %>
+        </section>
+
+      </main>
+      <%- include ("includes/footer") %> 
+  </body>
+  </html>
