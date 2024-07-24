@@ -1,0 +1,10 @@
+#blog-posts {
+  max-width: 800px;
+}
+
+#blog-posts #edit-delete-btn {
+  display: flex;
+}
+#blog-posts button {
+  margin: 0 10px;
+}

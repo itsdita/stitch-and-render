@@ -1,10 +1,9 @@
-<%- include ("includes/head",{title: "Some Deep 3D Thoughts."})%>
-
+<%- include ("../shared/includes/head",{title: "Update Post."})%>
 <link href="/styles/blog.css" rel="stylesheet" type="text/css" />
 <link>
   </head>
   <body>
-    <%- include ("includes/header") %>
+    <%- include ("../shared/includes/header") %>
       <main>
 
         <section class="page-title">
@@ -14,24 +13,23 @@
         <section>
           <% if (locals.isAdmin) {%>
           <div class="basic-container" id="blog-posts">
-            <h2>new post</h2>
-            <form action="/blog" method="POST">
+            <h2>update post</h2>
+            <form action="/posts/<%= post._id %>/edit" method="POST">
               <div class="input-group">
                 <label for="title">title</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" value="<%= post.title %>" required>
               </div>
               <div class="input-group">
                 <label for="content">content</label>
-                <textarea id="content" name="content" rows="5"required></textarea>
+                <textarea id="content" name="content" rows="5"required><%= post.content %></textarea>
               </div>
               <button class="basic-btn">post</button>
             </form>
           </div>
           <% } %>
-          <%- include ("includes/blog-posts") %>
         </section>
 
       </main>
-      <%- include ("includes/footer") %> 
+      <%- include ("../shared/includes/footer") %> 
   </body>
   </html>

@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const mongodb = require("mongodb");
 
 const router = express.Router();
 const Post = require("../models/post");
-const db = require("../data/database");//access to database
+const db = require("../data/database"); //access to database
+const ObjectId = mongodb.ObjectId;
 
 mongoose.connect("mongodb://localhost:27017/stitchAndRender");
 
@@ -21,23 +23,23 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model("Contact", contactSchema, "contactFormData");
 
 router.get("/", (req, res) => {
-  res.render("shared/landing-page", { title: "Become PRO in CLO!" });
+  res.render("shared/landing-page");
 });
 
 router.get("/about", (req, res) => {
-  res.render("shared/about", { title: "Who am I?" });
+  res.render("shared/about");
 });
 
 router.get("/videos", (req, res) => {
-  res.render("shared/videos", { title: "CLO tutorial treasure chest!" });
+  res.render("shared/videos");
 });
 
 router.get("/blog", async function (req, res) {
-  const posts = await db.getDb().collection("posts").find().toArray();//fetching posts data
-  res.render("shared/blog", { title: "Some Deep 3D Thoughts.", posts: posts });//in {} data passed to template
+  const posts = await db.getDb().collection("posts").find().toArray(); //fetching posts data
+  res.render("shared/blog", { posts: posts }); //in {} data passed to template
 });
 
-router.post("/admin", async function (req, res) {
+router.post("/blog", async function (req, res) {
   const enteredTitle = req.body.title;
   const enteredContent = req.body.content;
 
@@ -53,7 +55,7 @@ router.post("/admin", async function (req, res) {
       title: enteredTitle,
       content: enteredContent,
     };
-    res.redirect("/admin");
+    res.redirect("/blog");
     return;
   }
 
@@ -63,8 +65,34 @@ router.post("/admin", async function (req, res) {
   res.redirect("/admin");
 });
 
+router.get("/posts/:id/edit", async function (req, res) {
+  const postId = req.params.id;
+  const post = await db
+    .getDb()
+    .collection("posts")
+    .findOne({ _id: new ObjectId(postId) }, { title: 1, content: 1 });
+
+  if (!post) {
+    return res.status(404).render(404);
+  }
+
+  res.render("admin/update-post", { post: post });
+});
+
+router.post("/posts/:id/edit", async function (req, res) {
+  const postId = new ObjectId(req.params.id);
+  await db
+    .getDb()
+    .collection("posts")
+    .updateOne(
+      { _id: postId },
+      { $set: { title: req.body.title, content: req.body.content } }
+    );
+  res.redirect("/blog");
+});
+
 router.get("/contact", (req, res) => {
-  res.render("shared/contact", { title: "Get in touch!" });
+  res.render("shared/contact");
 });
 
 router.post("/contact", async function (req, res) {
@@ -81,13 +109,13 @@ router.post("/contact", async function (req, res) {
 
 //GET error pages
 router.get("/401", (req, res) => {
-  res.render("401", { title: "401" });
+  res.render("401");
 });
 router.get("/403", (req, res) => {
-  res.render("403", { title: "403" });
+  res.render("403");
 });
 router.get("/500", (req, res) => {
-  res.render("500", { title: "500" });
+  res.render("500");
 });
 
 module.exports = router;

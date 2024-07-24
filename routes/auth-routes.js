@@ -25,7 +25,7 @@ router.get("/join", (req, res) => {
   //flashing - clear data stored in session, so input doesn't show up all the time
   req.session.inputData = null;
 
-  res.render("shared/join", { inputData: sessionInputData, title: "Signup!" });
+  res.render("shared/join", { inputData: sessionInputData});
 });
 
 router.post("/join", async function (req, res) {
@@ -111,7 +111,7 @@ router.get("/login", (req, res) => {
   }
 
   req.session.inputData = null;
-  res.render("shared/login", { inputData: sessionInputData, title: "Login!" });
+  res.render("shared/login", { inputData: sessionInputData});
 });
 
 router.post("/login", async function (req, res) {
@@ -172,25 +172,21 @@ router.post("/login", async function (req, res) {
 // Protected route
 router.get("/mypage", (req, res) => {
   if (!res.locals.isAuth || res.locals.isAdmin) {
-    return res.status(401).redirect("/401"); // Redirect to login if not authenticated
+    return res.status(401).render("401"); // Redirect to login if not authenticated
   }
-  res.render("client/mypage", {
-    title: "Welcome Back!"
-  });
+  res.render("client/mypage");
 });
 
 router.get("/admin", async function (req, res) {
   if (!res.locals.isAuth) {
-    return res.status(401).redirect("/401"); // Typical status code for denied access
+    return res.status(401).render("401"); // Typical status code for denied access
   }
 
   if (!res.locals.isAdmin) {
-    return res.status(403).redirect("/403");
+    return res.status(403).render("403");
   }
 
-  res.render("admin/admin-page", {
-    title: "Admin area!"
-  });
+  res.render("admin/admin-page");
 });
 
 router.post("/logout", (req, res) => {
@@ -198,5 +194,7 @@ router.post("/logout", (req, res) => {
   req.session.isAuthenticated = false;
   res.redirect("/");
 });
+
+
 
 module.exports = router;
