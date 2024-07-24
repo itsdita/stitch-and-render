@@ -165,14 +165,14 @@ router.post("/login", async function (req, res) {
   };
   req.session.isAuthenticated = true;
   req.session.save(function () {
-    res.redirect("/mypage"); //will execute only when session data is saved
+    res.redirect("/"); //will execute only when session data is saved
   });
 });
 
 // Protected route
 router.get("/mypage", (req, res) => {
-  if (!res.locals.isAuth) {
-    return res.status(401).render("/login"); // Redirect to login if not authenticated
+  if (!res.locals.isAuth || res.locals.isAdmin) {
+    return res.status(401).redirect("/401"); // Redirect to login if not authenticated
   }
   res.render("client/mypage", {
     title: "Welcome Back!"
@@ -181,11 +181,11 @@ router.get("/mypage", (req, res) => {
 
 router.get("/admin", async function (req, res) {
   if (!res.locals.isAuth) {
-    return res.status(401).render("401"); // Typical status code for denied access
+    return res.status(401).redirect("/401"); // Typical status code for denied access
   }
 
   if (!res.locals.isAdmin) {
-    return res.status(403).render("403");
+    return res.status(403).redirect("/403");
   }
 
   res.render("admin/admin-page", {
