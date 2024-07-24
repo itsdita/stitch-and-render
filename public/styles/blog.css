@@ -5,6 +5,15 @@
 #blog-posts #edit-delete-btn {
   display: flex;
 }
-#blog-posts button {
+
+.edit,
+.hide,
+.delete {
   margin: 0 10px;
+}
+
+
+#form-delete{
+  display: flex;
+  width: 100%;
 }

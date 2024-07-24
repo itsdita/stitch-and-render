@@ -1,17 +1,19 @@
 <% if (!posts || posts.length === 0) {%>
-    <p>No posts found - maybe start creating some?</p>
-  <% } else {%>
-    <% for (const post of posts) {%>
-    <div class="basic-container" id="blog-posts">
-      <h2><%= post.title %></h2>
-      <p><%= post.content %></p>
-      <% if (locals.isAdmin) {%>
-      <div id="edit-delete-btn">
-        <button class="basic-btn"><a href="/posts/<%= post._id %>/edit">edit</a></button>
-        <button class="basic-btn"><a href="/posts/<%= post._id %>/delete">delete</a></button>
-        <button class="basic-btn">hide</button>
-      </div>
-      <% } %>
-    </div>
-    <% } %>
+<p>No posts found - maybe start creating some?</p>
+<% } else {%> <% for (const post of posts) {%>
+<div class="basic-container" id="blog-posts">
+  <h2><%= post.title %></h2>
+  <p><%= post.content %></p>
+  <% if (locals.isAdmin) {%>
+  <div id="edit-delete-btn">
+    <button class="basic-btn edit">
+      <a href="/posts/<%= post._id %>/edit">edit</a>
+    </button>
+    <button class="basic-btn hide">hide</button>
+    <form id="form-delete" class="delete" action="/posts/<%= post._id %>/delete" method="POST">
+      <button class="basic-btn delete">delete</button>
+    </form>
+  </div>
   <% } %>
+</div>
+<% } %> <% } %>

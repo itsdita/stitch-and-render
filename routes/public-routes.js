@@ -62,7 +62,7 @@ router.post("/blog", async function (req, res) {
   const newPost = new Post(enteredTitle, enteredContent);
   await newPost.save();
 
-  res.redirect("/admin");
+  res.redirect("/blog");
 });
 
 router.get("/posts/:id/edit", async function (req, res) {
@@ -93,6 +93,12 @@ router.post("/posts/:id/edit", async function (req, res) {
 
 router.get("/contact", (req, res) => {
   res.render("shared/contact");
+});
+
+router.post("/posts/:id/delete", async function(req, res){
+  const postId = new ObjectId(req.params.id);
+  const result = await db.getDb().collection("posts").deleteOne({_id: postId});
+  res.redirect("/blog");
 });
 
 router.post("/contact", async function (req, res) {
