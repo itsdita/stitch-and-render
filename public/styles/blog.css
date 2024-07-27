@@ -2,6 +2,23 @@
   max-width: 600px;
 }
 
+#blog-posts h2 {
+  margin-bottom: 0;  
+}
+#blog-date {
+  margin-top: 0;
+  font-size: 0.70rem;  
+}
+#blog-author {
+  font-style: italic;
+  font-size: 0.85rem;  
+  margin: 0;
+}
+
+#blog-content {
+  text-align: justify;
+}
+
 #btn-container {
   display: flex;
   gap: 10px; /* Add space between buttons */
