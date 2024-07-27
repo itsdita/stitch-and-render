@@ -1,19 +1,67 @@
 #blog-posts {
-  max-width: 800px;
+  max-width: 600px;
 }
 
-#blog-posts #edit-delete-btn {
+#btn-container {
   display: flex;
+  gap: 10px; /* Add space between buttons */
+  width: 100%; /* Ensure container takes full width */
 }
 
-.edit,
-.hide,
-.delete {
-  margin: 0 10px;
+.blog-btn, .blog-btn-form {
+  flex: 1; /* Make all buttons and forms take equal space */
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove any default padding */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
-
-#form-delete{
-  display: flex;
-  width: 100%;
+.blog-btn, .blog-btn-form button {
+  display: flex; /* Use flexbox for button */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  font-size: 1.2rem;
+  padding: 10px 0; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  background-color: var(--color-grey-100); /* Button background color */
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  color: var(--color-grey-300); /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Optional: Add border radius */
+  cursor: pointer; /* Change cursor to pointer */
+  text-align: center; /* Center text */
+  width: 100%; /* Ensure buttons take full width */
+  transition: background-color 0.3s, box-shadow 0.3s;
+  outline: none;
 }
+
+.blog-btn a {
+  color: var(--color-grey-300); /* Ensure anchor text is white */
+  text-decoration: none; /* Remove underline from anchor text */
+  width: 100%; /* Ensure anchor takes full width */
+  height: 100%; /* Ensure anchor takes full height */
+  display: flex; /* Use flexbox for anchor */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+}
+
+.blog-btn:hover, .blog-btn-form button:hover {
+  background-color: var(--color-contast-main);
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  color: white;
+}
+
+.blog-btn:hover a {
+  color: white;
+}
+
+.blog-btn-form {
+  flex: 1; /* Ensure form takes equal space */
+  display: flex; /* Use flexbox for form */
+  justify-content: center; /* Center the button inside the form */
+  align-items: center; /* Center items vertically in form */
+  margin: 0; /* Remove any default margins */
+  padding: 0; /* Remove any default padding */
+  width: 100%; /* Ensure form takes full width */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+

@@ -5,13 +5,18 @@
   <h2><%= post.title %></h2>
   <p><%= post.content %></p>
   <% if (locals.isAdmin) {%>
-  <div id="edit-delete-btn">
-    <button class="basic-btn edit">
+  <div id="btn-container">
+    <button class="blog-btn">
       <a href="/posts/<%= post._id %>/edit">edit</a>
     </button>
-    <button class="basic-btn hide">hide</button>
-    <form id="form-delete" class="delete" action="/posts/<%= post._id %>/delete" method="POST">
-      <button class="basic-btn delete">delete</button>
+    <button class="blog-btn">hide</button>
+    <form
+      id="form-delete"
+      class="blog-btn-form"
+      action="/posts/<%= post._id %>/delete"
+      method="POST"
+    >
+      <button class="blog-btn">delete</button>
     </form>
   </div>
   <% } %>

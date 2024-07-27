@@ -1,93 +1,93 @@
-  .basic-container {
-    background-color: var(--color-grey-100);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin: 10px auto 50px auto;
-  }
-  
-  .basic-container h2 {
-    margin-bottom: 20px;
-    margin-top: 0;
-    color: var(--color-grey-300);
-  }
-  
-  /* Input groups */
-  .input-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  .input-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--color-grey-300);
-  }
-  
-  .input-group input, 
-  .input-group textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    transition: border-color 0.3s;
-    background: var(--color-grey-100);
-    box-shadow: inset 3px 3px 3px var(--color-grey-200), inset -3px -3px 3px white;
-    border: none;
-    resize:none;
-    outline: none;
-    font-family: inherit;
-  }
-  
-  .input-group input:focus {
-    border-color: var(--color-contast-main);
-    outline: none;
-  }
-  
-  /* button styling */
-  .basic-btn a {
-    text-decoration: none;
-    color: inherit;
-  }
+.basic-container {
+  background-color: var(--color-grey-100);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin: 10px auto 50px auto;
+}
 
-  .basic-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    background: var(--color-grey-100);
-    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
-    color: var(--color-grey-300);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    border: none;
-    outline: none;
-  }
-  
-  .basic-btn:hover {
-    background-color: var(--color-contast-main);
-    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
-    color: white;
-  }
-  
-  /* Login/Signup link */
-  .login-link,
-  .signup-link {
-    margin-top: 20px;
-    color: var(--color-grey-300);
-  }
-  
-  .login-link a,
-  .signup-link a {
-    color: var(--color-contast-main);
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .login-link a:hover,
-  .signup-link a:hover {
-    font-weight: bolder;
-  }
+.basic-container h2 {
+  margin-bottom: 20px;
+  margin-top: 0;
+  color: var(--color-grey-300);
+}
+
+/* Input groups */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-grey-300);
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+  background: var(--color-grey-100);
+  box-shadow: inset 3px 3px 3px var(--color-grey-200), inset -3px -3px 3px white;
+  border: none;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+}
+
+.input-group input:focus {
+  border-color: var(--color-contast-main);
+  outline: none;
+}
+
+/* button styling */
+.basic-btn a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.basic-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--color-grey-100);
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  color: var(--color-grey-300);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: none;
+  outline: none;
+}
+
+.basic-btn:hover {
+  background-color: var(--color-contast-main);
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  color: white;
+}
+
+/* Login/Signup link */
+.login-link,
+.signup-link {
+  margin-top: 20px;
+  color: var(--color-grey-300);
+}
+
+.login-link a,
+.signup-link a {
+  color: var(--color-contast-main);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-link a:hover,
+.signup-link a:hover {
+  font-weight: bolder;
+}
