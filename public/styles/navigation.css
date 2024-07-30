@@ -121,6 +121,7 @@ nav a:hover {
   }
   header {
     position: static;
+    box-shadow: none;
   }
   #nav-items {
     display: flex;
