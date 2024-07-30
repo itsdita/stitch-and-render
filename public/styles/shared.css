@@ -95,3 +95,10 @@
   footer a:hover { 
     filter: invert(80%) sepia(98%) saturate(593%) hue-rotate(153deg) brightness(106%) contrast(104%);
   }
+
+  @media (max-width: 48rem) {
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+    }
+  }
