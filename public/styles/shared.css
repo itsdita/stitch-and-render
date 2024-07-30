@@ -43,38 +43,7 @@
     /*background-color: var(--color-grey-100);*/
   }
   
-  nav {
-    max-width: 1024px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-    padding: 0 20px;
-    /*background-color: var(--color-grey-200);*/
-  }
-  
-  #nav-items {
-    display: flex;
-    gap: 20px;
-    /* Adjust the gap as needed */
-  }
-  
-  #logo {
-    margin-right: auto;
-    /* Pushes the rest of the items to the right */
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: inherit;
-    font-size: 1.5rem;
-  }
-  
-  nav a:hover {
-    color: var(--color-contast-main);
-    font-weight: bold;
-  }
-  
+ 
  .page-title {
     max-width: 1024px;
     text-align: center;

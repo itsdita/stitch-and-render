@@ -1,0 +1,136 @@
+main {
+  margin-top: 5rem;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-grey-100);
+}
+
+nav {
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  padding: 0 20px;
+  /*background-color: var(--color-grey-200);*/
+}
+
+#nav-items {
+  display: none;
+}
+
+#mobile-menu #nav-items {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.75rem;
+}
+
+#logo {
+  margin-right: auto;
+  /* Pushes the rest of the items to the right */
+}
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.5rem;
+}
+
+nav a:hover {
+  color: var(--color-contast-main);
+  font-weight: bold;
+}
+
+#mobile-menu-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: none;
+  cursor: pointer;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: transparent;
+  padding: 0;
+}
+
+#mobile-menu-btn span {
+  width: 2.25rem;
+  height: 0.2rem;
+  background-color: var(--color-grey-400);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+#mobile-menu {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  height: calc(100vh - 5rem);
+  width: 100%;
+  background-color: var(--color-grey-100);
+  color: var(--color-grey-400);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+#mobile-menu nav {
+  height: 20rem;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+#mobile-menu.open { /*no space before .open*/
+  display: flex;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 2px 10px;
+  border-radius: 8px;
+  background: var(--color-grey-100);
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  color: var(--color-grey-400);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: none;
+  outline: none;
+}
+.logout-btn:hover {
+    background-color: var(--color-contast-main);
+    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+    color: white;
+  }
+
+@media (min-width: 48rem) {
+  /* 768px, burger button is hidden on large screens */
+  main {
+    margin-top: 0;
+  }
+  header {
+    position: static;
+  }
+  #nav-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #mobile-menu-btn {
+    display: none;
+  }
+  #mobile-menu {
+    display: none;
+  }
+}
