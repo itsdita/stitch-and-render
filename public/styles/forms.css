@@ -91,3 +91,9 @@
 .signup-link a:hover {
   font-weight: bolder;
 }
+
+@media (max-width: 48rem) {
+  .basic-container {
+    width: 90%;
+  }
+}
