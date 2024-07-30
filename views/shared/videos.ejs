@@ -1,5 +1,6 @@
 <%- include ("includes/head", { title: "CLO tutorial treasure chest!" })%>
-  </head>
+<link href="/styles/videos.css" rel="stylesheet" />  
+</head>
 
   <body>
     <%- include ("includes/header") %>
@@ -7,6 +8,51 @@
       <main>
         <section class="page-title">
           <h1>my tutorial treasure chest</h1>
+        </section>
+        
+        <section>
+          <div id="all-video-container">
+            <div class="video-container">
+              <% if (locals.isAuth || locals.isAdmin) {%>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/1y8ZgWv7z1g"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                ></iframe>
+                <%} else {%>
+                  <img src="/images/vid-thumbnails/thumbnail1.png">
+                  <div class="locked-blur"></div>
+                  <div class="locked-a"><a href="/login">UNLOCK</a></div>
+              <% } %> 
+            </div>
+            <div class="video-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/RA95GmWrPpk?si=G6Hy9GdKpoajmkqZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/Azdlyd0aG7A?si=U6-hvyihQgvTQ6bl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+              <% if (locals.isAuth || locals.isAdmin) {%>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/1y8ZgWv7z1g"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <%} else {%>
+                  <img src="/images/vid-thumbnails/thumbnail2.png">
+                  <div class="locked-blur"></div>
+                  <div class="locked-a"><a href="/login">UNLOCK</a></div>
+                <% } %>
+            </div>
+        </div>
         </section>
       </main>
       <%- include ("includes/footer") %>
