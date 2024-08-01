@@ -1,4 +1,5 @@
-#admin-products {
+#admin-products,
+#add-product {
   display: flex;
   justify-content: center;
   max-width: 600px;
@@ -6,13 +7,23 @@
   gap: 20px;
 }
 
-#admin-products .basic-btn {
+#product-edit-del-btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+#admin-products .basic-btn,
+#add-product .basic-btn,
+#product-edit-del-btn .basic-btn {
     display: flex;
     justify-content: center;
     padding: 0;
   }
 
-#admin-products a {
+#admin-products a,
+#add-product a,
+#product-edit-del-btn a {
     width: 100%;
     height: 100%;
     padding: 10px;
@@ -27,13 +38,6 @@
   margin: 10px auto 50px auto;
 }
 
-.basic-btn.add {
-  display: flex;
-  justify-content: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 .product-container img {
   object-fit: cover;
   width: 100%;
@@ -42,12 +46,6 @@
 .image-container {
   height: 150px;
   display: flex;
-}
-
-#product-edit-del-btn {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
 }
 
 #product-list {
