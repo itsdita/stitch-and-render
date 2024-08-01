@@ -1,7 +1,13 @@
 const Product = require("../models/product.model");
 
-function getProducts(req, res) {
-  res.render("admin/products/admin-all-products");
+async function getProducts(req, res) {
+    try {
+        const products = await Product.findAll();
+        res.render("admin/products/admin-all-products", { products: products });
+    } catch (error){
+        next(error);
+        return;
+    }
 }
 
 function getNewProducts(req, res) {

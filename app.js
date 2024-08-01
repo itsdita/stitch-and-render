@@ -29,6 +29,7 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));// Parse incoming request bodies
 app.use(bodyParser.json()); 
 app.use(express.static("public")); // Serve static files (e.g. CSS files)
+app.use("/products/assets", express.static("product-data")); // Serve static files (e.g. images)
 
 app.use(
   session({

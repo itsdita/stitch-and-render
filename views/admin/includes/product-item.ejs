@@ -1,0 +1,14 @@
+<div class="product-container">
+  <div class="image-container">
+    <img src="<%= product.imageUrl  %>" alt="<%= product.title %>" />
+  </div>
+  <h2><%= product.title %></h2>
+  <div id="product-edit-del-btn">
+    <button class="basic-btn">
+      <a href="/admin/products/edit/<%= product.id  %>">view&edit</a>
+    </button>
+    <button class="basic-btn">
+      <a href="/admin/products/delete/<%= product.id  %>">delete</a>
+    </button>
+  </div>
+</div>
