@@ -9,6 +9,7 @@ const { ObjectId } = require('mongodb');
 const db = require("./data/database");
 const authRoutes = require("./routes/auth-routes");
 const publicRoutes = require("./routes/public-routes");
+const adminRoutes = require("./routes/admin-routes");
 
 const MongoDBStore = mongoDBStore(session);
 
@@ -67,6 +68,7 @@ app.use(async function(req, res, next) {
 
 app.use(authRoutes);
 app.use(publicRoutes);
+app.use("/admin", adminRoutes);
 
 //request error-handling middleware function
 app.use(function (error, req, res, next) {

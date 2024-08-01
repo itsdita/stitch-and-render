@@ -92,6 +92,16 @@
   font-weight: bolder;
 }
 
+.new-product .btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.input-group #image {
+  box-shadow: none;
+}
+
 @media (max-width: 48rem) {
   .basic-container {
     width: 90%;
