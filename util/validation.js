@@ -9,11 +9,11 @@ function userCredentialsAreValid(email, password) {
 }
 
 function userDetailsAreValid(
-  username,
   email,
-  confirmEmail,
   password,
-  confirmPassword
+  confirmEmail,
+  confirmPassword,
+  username
 ) {
   return (
     !isEmpty(username) &&
@@ -27,6 +27,4 @@ function userDetailsAreValid(
   );
 }
 
-module.exports = {
-    userDetailsAreValid: userDetailsAreValid,
-}
+module.exports = userDetailsAreValid;

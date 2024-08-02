@@ -5,25 +5,38 @@ const sessionFlash = require("../util/session-flash");
 const session = require("express-session");
 
 function getSignup(req, res) {
-  res.render("shared/join");
+  let sessionData = sessionFlash.getSessionData(req);
+
+  if (!sessionData) {
+    sessionData = {
+      email: "",
+      password: "",
+      confirmEmail: "",
+      confirmPassword: "",
+      username: "",
+    };
+  }
+  res.render("shared/join", { inputData: sessionData });
 }
 
 async function signup(req, res, next) {
   const enteredData = {
-    username: req.body.username,
     email: req.body.email,
-    confirmEmail: req.body.confirmEmail,
     password: req.body.password,
+    confirmEmail: req.body.confirmEmail,
     confirmPassword: req.body.confirmPassword,
+    username: req.body.username,
   };
+
+  console.log(enteredData);
 
   if (
     !userDetailsAreValid(
-      req.body.username,
       req.body.email,
-      req.body.confirmEmail,
       req.body.password,
-      req.body.confirmPassword
+      req.body.confirmEmail,
+      req.body.confirmPassword,
+      req.body.username
     )
   ) {
     sessionFlash.flashDataToSession(
@@ -41,11 +54,11 @@ async function signup(req, res, next) {
   }
 
   const user = new User(
-    req.body.username,
     req.body.email,
-    req.body.confirmEmail,
     req.body.password,
-    req.body.confirmPassword
+    req.body.confirmEmail,
+    req.body.confirmPassword,
+    req.body.username
   );
 
   try {
@@ -76,7 +89,15 @@ async function signup(req, res, next) {
 }
 
 function getLogin(req, res) {
-  res.render("shared/login");
+  let sessionData = sessionFlash.getSessionData(req);
+
+  if (!sessionData) {
+    sessionData = {
+      email: "",
+      password: "",
+    };
+  }
+  res.render("shared/login", { inputData: sessionData });
 }
 
 async function login(req, res) {

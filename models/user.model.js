@@ -3,12 +3,13 @@ const bcrypt = require("bcryptjs");
 const db = require("../data/database.js");
 
 class User {
-  constructor(username, email, confirmEmail, password, confirmPassword) {
-    this.username = username;
+  constructor(email, password, confirmEmail, confirmPassword, username) {
+    
     this.email = email;
-    this.confirmEmail = confirmEmail;
     this.password = password;
+    this.confirmEmail = confirmEmail;
     this.confirmPassword = confirmPassword;
+    this.username = username;
   }
 
   getUserWithSameEmail() {

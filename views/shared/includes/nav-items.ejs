@@ -23,6 +23,7 @@
   <% } %> <% if (locals.isAuth || locals.isAdmin) {%>
   <div class="nav-item">
     <form id="logout-form" action="/logout" method="POST">
+      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
       <button class="logout-btn" type="submit">logout</button>
     </form>
   </div>
