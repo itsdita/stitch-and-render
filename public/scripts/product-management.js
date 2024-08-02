@@ -2,8 +2,10 @@ const deleteProductButtonElements = document.querySelectorAll("#delete-product-b
 
 async function deleteProduct(event) {
   const buttonElement = event.target;
-  const productId = buttonElement.dataset.productId;
+  const productId = buttonElement.dataset.productid;
   const csrfToken = buttonElement.dataset.csrf;
+  console.log(productId);
+  console.log(csrfToken);
 
   const response = await fetch(
     "/admin/products/" + productId + "?_csrf=" + csrfToken,
@@ -15,6 +17,8 @@ async function deleteProduct(event) {
     alert("Something went wrong!");
     return;
   }
+
+  console.log(response);
   buttonElement.parentElement.parentElement.parentElement.remove();
 }
 
