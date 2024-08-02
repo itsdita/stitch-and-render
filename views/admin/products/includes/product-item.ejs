@@ -7,8 +7,6 @@
     <button class="basic-btn">
       <a href="/admin/products/<%= product.id%>">view&edit</a>
     </button>
-    <button class="basic-btn">
-      <a href="/admin/products/<%= product.id%>">delete</a>
-    </button>
+    <button id="delete-product-btn" class="basic-btn" data-productId="<%= product.id %>" data-csrf="<% locals.csrfToken %>">delete</button>
   </div>
 </div>

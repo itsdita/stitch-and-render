@@ -42,9 +42,9 @@ class Product {
     });
   }
 
-  updateImageData(){
+  updateImageData() {
     this.imagePath = `product-data/images/${this.image}`;
-    this.imageUrl = `/products/assets/images/${this.image}`; 
+    this.imageUrl = `/products/assets/images/${this.image}`;
   }
 
   async save() {
@@ -63,19 +63,22 @@ class Product {
         delete productData.image; //deletes key-value pair from productData object
       }
 
-      await db.getDb()
+      await db
+        .getDb()
         .collection("products")
-        .updateOne({_id: productId}, {$set: productData});
-        
+        .updateOne({ _id: productId }, { $set: productData });
     } else {
-      await db.getDb()
-      .collection("products")
-      .insertOne(productData); // save the product to the database
+      await db.getDb().collection("products").insertOne(productData); // save the product to the database
     }
   }
   async replaceImage(newImage) {
     this.image = newImage;
     this.updateImageData();
+  }
+
+  remove() {
+    const productId = new mongodb.ObjectId(this.id);
+    return db.getDb().collection("products").deleteOne({ _id: productId });
   }
 }
 
