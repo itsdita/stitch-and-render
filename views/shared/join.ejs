@@ -16,6 +16,7 @@
               <P><%= inputData.message %></P>
             <% } %>
             <form action="/join" method="POST">
+              <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
               <div class="input-group">
                 <label for="username">username</label>
                 <input type="text" id="username" name="username" value="<%= inputData.username %>" required>
@@ -26,7 +27,7 @@
               </div>
               <div class="input-group">
                 <label for="confirm-email">confirm email</label>
-                <input type="email" id="confirm-email" name="confirm-email" value="<%= inputData.confirmEmail %>"required>
+                <input type="email" id="confirm-email" name="confirmEmail" value="<%= inputData.confirmEmail %>"required>
               </div>
               <div class="input-group">
                 <label for="password">password</label>
@@ -34,7 +35,7 @@
               </div>
               <div class="input-group">
                 <label for="confirm-password">confirm password</label>
-                <input type="password" id="confirm-password" name="confirm-password" value="<%= inputData.confirmPassword %>"required>
+                <input type="password" id="confirm-password" name="confirmPassword" value="<%= inputData.confirmPassword %>"required>
               </div>
               <button class="basic-btn">create new account</button>
             </form>

@@ -17,6 +17,7 @@
               <P><%= inputData.message %></P>
             <% } %>
             <form action="/login" method="POST">
+              <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
               <div class="input-group">
                 <label for="email">email</label>
                 <input type="email" id="email" name="email" value="<%= inputData.email %>" required>
