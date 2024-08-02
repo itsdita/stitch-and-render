@@ -1,4 +1,4 @@
-<%- include ("../../shared/includes/head", {title: "Add new product"})%>
+<%- include ("../../shared/includes/head", {title: "Update product"})%>
   </head>
 
   <body>
@@ -6,10 +6,10 @@
     
       <main>
         <section class="page-title">
-          <h1>new product</h1>
+          <h1>update product</h1>
         </section>
         <section>
-          <%- include("includes/product-form", {submitPath: "/admin/products", product: {title: "",summary: "",description: "",price: ""}, imageRequired: true}) %>
+            <%- include("includes/product-form", {submitPath: "/admin/products/" + product.id, product: product, imageRequired: false}) %>
         </section>
       </main>
       <%- include ("../../shared/includes/footer") %>
