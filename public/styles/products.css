@@ -29,6 +29,23 @@
     padding: 10px;
 }
 
+#image-upload-control{
+  display: flex;
+  align-items: center;
+
+}
+
+#image-upload-control input{
+  max-width: 15rem;
+}
+#image-upload-control img{
+  display:none;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  
+}
+
 .product-container {
   background-color: var(--color-grey-100);
   padding: 20px;

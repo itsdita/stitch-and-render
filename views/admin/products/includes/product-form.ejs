@@ -4,9 +4,12 @@
         <label for="title">title</label>
         <input type="text" name="title" id="title" value="<%= product.title %>" required>
       </div>
-      <div class="input-group file">
-        <label for="image">image</label>
-        <input type="file" name="image" id="image" accept="image/png, image/jpg" <% if (imageRequired) { %>required<% } %>>
+      <div id="image-upload-control">
+        <div class="input-group file">
+          <label for="image">image</label>
+          <input type="file" name="image" id="image" accept="image/png, image/jpg" <% if (imageRequired) { %>required<% } %>>
+        </div>
+        <img src="" alt="Image preview.">
       </div>
       <div class="input-group">
         <label for="summary">summary</label>
