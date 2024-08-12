@@ -75,6 +75,13 @@
     padding: 0;
     margin: 0;
   }
+
+  #footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
   
   footer div {
     /*background-color: var(--color-grey-200);*/
@@ -94,6 +101,11 @@
 
   footer a:hover { 
     filter: invert(80%) sepia(98%) saturate(593%) hue-rotate(153deg) brightness(106%) contrast(104%);
+  }
+
+  #contact {
+    text-decoration: none;
+    color: inherit;
   }
 
   @media (max-width: 48rem) {
