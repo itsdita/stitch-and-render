@@ -1,26 +1,12 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const mongodb = require("mongodb");
 
 const router = express.Router();
 const Post = require("../models/post");
+const Contact = require("../models/contact");
 const db = require("../data/database"); //access to database
 const ObjectId = mongodb.ObjectId;
 
-mongoose.connect("mongodb://localhost:27017/stitchAndRender");
-
-//specify the structure of the documents in a collection
-const contactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  subject: String,
-  message: String,
-});
-
-//Contact is the model name, and Mongoose will use this model to interact with the
-//contacts collection in the MongoDB database
-//if want custom collection name, have to add it, after contactSchema
-const Contact = mongoose.model("Contact", contactSchema, "contactFormData");
 
 router.get("/", (req, res) => {
   res.render("shared/landing-page");
@@ -95,23 +81,25 @@ router.get("/contact", (req, res) => {
   res.render("shared/contact");
 });
 
+router.post("/contact", async function (req, res) {
+  const enteredName = req.body.name;
+  const enteredEmail = req.body.email;
+  const enteredSubject = req.body.subject;
+  const enteredMessage = req.body.message;
+
+ 
+  const newContact = new Contact(enteredName, enteredEmail, enteredSubject, enteredMessage);
+  await newContact.save();
+
+  res.render("shared/contact");
+});
+
 router.post("/posts/:id/delete", async function(req, res){
   const postId = new ObjectId(req.params.id);
   const result = await db.getDb().collection("posts").deleteOne({_id: postId});
   res.redirect("/blog");
 });
 
-router.post("/contact", async function (req, res) {
-  const { name, email, subject, message } = req.body;
-  const newContact = new Contact({ name, email, subject, message });
-
-  try {
-    await newContact.save();
-    res.status(200).send("Form submitted successfully");
-  } catch (error) {
-    res.status(500).render("500");
-  }
-});
 
 //GET error pages
 router.get("/401", (req, res) => {
