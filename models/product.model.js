@@ -78,7 +78,6 @@ class Product {
 
   remove() {
     const productId = new mongodb.ObjectId(this.id);
-    console.log(productId);
     return db.getDb().collection("products").deleteOne({ _id: productId });
   }
 }

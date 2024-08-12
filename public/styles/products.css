@@ -29,6 +29,12 @@
     padding: 10px;
 }
 
+#delete-product-btn{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #image-upload-control{
   display: flex;
   align-items: center;
