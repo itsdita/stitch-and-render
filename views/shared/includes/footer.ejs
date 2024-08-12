@@ -17,16 +17,16 @@
         >
       </div>
     </div>
+    <% if (!locals.isAdmin) {%>
     <div>
-      <% if (!locals.isAdmin) {%>
       <h2>contact us..</h2>
-      <% } %>
       <div>
         <a id="contact" href="/contact"
-          ><img src=https://www.svgrepo.com/show/317909/contact-mail.svg
-          alt="Contact Us logo"></a
+        ><img src=https://www.svgrepo.com/show/317909/contact-mail.svg
+        alt="Contact Us logo"></a
         >
       </div>
     </div>
+    <% } %>
   </div>
 </footer>
