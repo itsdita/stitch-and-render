@@ -12,6 +12,7 @@ const createSessionConfig = require("./config/session");
 const addCsrfTokenMiddleware = require("./middlewares/csrf-token");
 const errorHandlerMiddleware = require("./middlewares/error-handler");
 const checkAuthStatusMiddleware = require("./middlewares/check-auth");
+const protectRoutesMiddleware = require("./middlewares/protect-routes");
 const authRoutes = require("./routes/auth-routes");
 const publicRoutes = require("./routes/public-routes");
 const adminRoutes = require("./routes/admin-routes");
@@ -36,6 +37,7 @@ app.use(checkAuthStatusMiddleware);
 
 app.use(authRoutes);
 app.use(publicRoutes);
+app.use(protectRoutesMiddleware);
 app.use("/admin", adminRoutes);
 
 // server side error-handling middleware

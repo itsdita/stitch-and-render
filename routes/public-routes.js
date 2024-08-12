@@ -115,13 +115,13 @@ router.post("/contact", async function (req, res) {
 
 //GET error pages
 router.get("/401", (req, res) => {
-  res.render("401");
+  res.status(401).render("401");
 });
 router.get("/403", (req, res) => {
-  res.render("403");
+  res.status(403).render("403");
 });
 router.get("/500", (req, res) => {
-  res.render("500");
+  res.status(500).render("500");
 });
 
 module.exports = router;
