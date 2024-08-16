@@ -1,0 +1,24 @@
+<%- include ("includes/head", { title: "3D Fashion Shop"})%>
+<link href="/styles/products.css" rel="stylesheet" /> 
+  </head>
+
+  <body>
+    <%- include ("includes/header") %>
+
+      <main>
+        <section class="page-title">
+          <h1>all the good stuff!</h1>
+        </section>
+        <section >
+          <div id="product-list">
+            <% for (const product of products) { %>
+            <div>
+              <%- include("includes/public-product-item", {product: product})  %>
+            </div>
+            <% } %>
+          </div>
+        </section>
+      </main>
+      <%- include ("includes/footer") %>   
+  </body>
+  </html>
