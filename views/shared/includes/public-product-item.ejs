@@ -2,7 +2,8 @@
   <div class="image-container">
     <img src="<%= product.imageUrl  %>" alt="<%= product.title %>" />
   </div>
-  <h2><%= product.title %></h2>
+  <h2 class="product-title"><%= product.title %></h2>
+  <p class="product-price">$<%= product.price.toFixed(2) %></p>
   <div id="product-edit-del-btn">
     <button class="basic-btn">
       <a href="/admin/products/<%= product.id%>">view</a>
