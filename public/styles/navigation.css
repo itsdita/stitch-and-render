@@ -40,12 +40,16 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: inherit;
+  text-shadow: 
+   -1px -1px 2px var(--color-white),
+   1px 1px 2px var(--color-grey-300);
+   color: var(--color-white);
   font-size: 1.5rem;
+  transition: all 0.1s ease-in-out 0.1s;
 }
 
 nav a:hover {
-  color: var(--color-contast-main);
+  color: var(--color-contrast-main);
   font-weight: bold;
 }
 
@@ -110,7 +114,7 @@ nav a:hover {
   outline: none;
 }
 .logout-btn:hover {
-    background-color: var(--color-contast-main);
+    background-color: var(--color-contrast-main);
     box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
     color: white;
   }

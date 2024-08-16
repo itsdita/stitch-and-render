@@ -1,5 +1,5 @@
 .basic-container {
-  background-color: var(--color-grey-100);
+  background: linear-gradient(0deg, rgba(240,240,240,1) 0%, rgba(242,242,242,1) 65%, rgba(245,245,245,1) 100%);
   padding: 20px;
   border-radius: 12px;
   box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
@@ -68,7 +68,7 @@
 }
 
 .basic-btn:hover {
-  background-color: var(--color-contast-main);
+  background-color: var(--color-contrast-main);
   box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
   color: white;
 }
@@ -82,7 +82,7 @@
 
 .login-link a,
 .signup-link a {
-  color: var(--color-contast-main);
+  color: var(--color-contrast-main);
   text-decoration: none;
   transition: color 0.3s;
 }
