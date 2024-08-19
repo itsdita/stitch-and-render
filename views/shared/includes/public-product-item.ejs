@@ -6,7 +6,7 @@
   <p class="product-price">$<%= product.price.toFixed(2) %></p>
   <div id="product-edit-del-btn">
     <button class="basic-btn">
-      <a href="/admin/products/<%= product.id%>">view</a>
+      <a href="/shop/<%= product.id%>">view</a>
     </button>
     <button id="delete-product-btn" class="basic-btn" data-productid="<%= product.id %>" data-csrf="<%= locals.csrfToken %>">buy</button>
   </div>

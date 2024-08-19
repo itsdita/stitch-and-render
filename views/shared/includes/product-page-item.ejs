@@ -1,0 +1,30 @@
+<main>
+  <section class="page-title">
+    <h1 class="title-gradient"><%= product.title %></h1>
+  </section>
+  <section>
+    <div class="product-container single-product">
+      <div class="image-container">
+        <img src="<%= product.imageUrl  %>" alt="<%= product.title %>" />
+      </div>
+      <div class="price-container">
+        <p class="product-price">$<%= product.price.toFixed(2) %></p>
+      </div>
+      <div class="summary-container">
+        <p><%= product.summary %></p>
+      </div>
+      <div class="description-container">
+        <p><%= product.description %></p>
+      </div>
+      <div id="product-edit-del-btn" class="button-container">
+        <button
+          class="buy-btn"
+          data-productid="<%= product.id %>"
+          data-csrf="<%= locals.csrfToken %>"
+        >
+          buy
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
