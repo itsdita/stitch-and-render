@@ -9,9 +9,11 @@
       <h1>your cart..</h1>
     </section>
     <div id="cart-container">
-        <div id="cart-total">
-          <p>total: </p>
-          <button class="basic-btn" id="order-btn">order now</button>
+        <div id="cart-total-price">
+          <p>total: $<%= locals.cart.totalPrice.toFixed(2) %> </p>
+        </div>
+        <div id="cart-total-order">
+            <button class="basic-btn" id="order-btn">order now</button>
         </div>
         <div id="cart-items">
                 <% for (const cartItem of locals.cart.items) { %>
@@ -25,20 +27,20 @@
                                 <h2><%= cartItem.product.title %></h2>
                                 <p>price: $<%= cartItem.totalPrice.toFixed(2) %></p>
                                 <p>quantity: <%= cartItem.quantity %></p>
+                                <div class="cart-item-edit">
+                                    <button class="basic-btn">
+                                    <a href="/shop/<%= cartItem.product.id%>">view</a>
+                                    </button>
+                                    <button
+                                    class="basic-btn remove-from-cart"
+                                    data-productid="<%= cartItem.product.id %>"
+                                    data-csrf="<%= locals.csrfToken %>"
+                                    >
+                                    remove
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    <div class="cart-item-edit">
-                        <button class="basic-btn">
-                        <a href="/shop/<%= cartItem.product.id%>">view</a>
-                        </button>
-                        <button
-                        class="basic-btn remove-from-cart"
-                        data-productid="<%= cartItem.product.id %>"
-                        data-csrf="<%= locals.csrfToken %>"
-                        >
-                        remove
-                        </button>
-                    </div>
                     </div>
                 </div>
                 <% } %>
