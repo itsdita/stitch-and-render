@@ -99,7 +99,9 @@ router.post("/posts/:id/delete", async function(req, res){
   const result = await db.getDb().collection("posts").deleteOne({_id: postId});
   res.redirect("/blog");
 });
-
+router.get("/cart", (req, res) => {
+  res.render("shared/cart");
+});
 
 //GET error pages
 router.get("/401", (req, res) => {

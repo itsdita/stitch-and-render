@@ -11,7 +11,7 @@
   <div class="nav-item">
     <a href="/blog">blog</a>
   </div>
-   <% if (locals.isAdmin) {%>
+  <% if (locals.isAdmin) {%>
   <div class="nav-item">
     <a href="/admin">admin</a>
   </div>
@@ -19,10 +19,14 @@
   <div class="nav-item">
     <a href="/mypage">myPage</a>
   </div>
-  <% } %> <% if (locals.isAuth || locals.isAdmin) {%>
+  <% } %>
+  <div class="nav-item">
+    <a href="/cart">cart<span class="badge">0</span></a>
+  </div>
+  <% if (locals.isAuth || locals.isAdmin) {%>
   <div class="nav-item">
     <form id="logout-form" action="/logout" method="POST">
-      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+      <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
       <button class="logout-btn" type="submit">logout</button>
     </form>
   </div>
@@ -33,5 +37,5 @@
   <div class="nav-item">
     <a href="/login">login</a>
   </div>
-<% } %>
+  <% } %>
 </div>

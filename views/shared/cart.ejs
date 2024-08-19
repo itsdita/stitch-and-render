@@ -1,0 +1,49 @@
+<%- include ("includes/head", { title: "3D Fashion Shop"})%>
+<link href="/styles/products.css" rel="stylesheet" />
+<link href="/styles/cart.css" rel="stylesheet" />  
+  </head>
+
+  <body>
+    <%- include ("includes/header") %>
+    <section class="page-title">
+      <h1>your cart..</h1>
+    </section>
+    <div id="cart-container">
+        <div id="cart-total">
+          <p>total: </p>
+          <button class="basic-btn" id="order-btn">order now</button>
+        </div>
+        <div id="cart-items">
+                <% for (const cartItem of locals.cart.items) { %>
+                <div>
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="image-container">
+                                <img src="<%= cartItem.product.imageUrl  %>" alt="<%= cartItem.product.title %>" />
+                            </div>
+                            <div class="cart-item-details">
+                                <h2><%= cartItem.product.title %></h2>
+                                <p>price: $<%= cartItem.totalPrice.toFixed(2) %></p>
+                                <p>quantity: <%= cartItem.quantity %></p>
+                            </div>
+                        </div>
+                    <div class="cart-item-edit">
+                        <button class="basic-btn">
+                        <a href="/shop/<%= cartItem.product.id%>">view</a>
+                        </button>
+                        <button
+                        class="basic-btn remove-from-cart"
+                        data-productid="<%= cartItem.product.id %>"
+                        data-csrf="<%= locals.csrfToken %>"
+                        >
+                        remove
+                        </button>
+                    </div>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+    </div>
+    <%- include ("includes/footer") %>   
+  </body>
+  </html>
