@@ -1,58 +1,61 @@
 .single-product {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 2rem auto;
+  grid-template-columns: 1.75fr 1fr;
+  grid-template-rows: 3rem 3rem auto;
   gap: 10px;
   align-items: center;
-  max-width: 1024px;
+  max-width: 800px;
   margin: 0 auto;
 }
+.single-product p{
+    margin:0;
+    padding:0;
+    }
 .image-container {
   grid-column: 1 / 2;
-  grid-row: 1 / 3;
+  grid-row: 1/4;
 }
 
-.summary-container {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-}
 
 .description-container {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
+  grid-column: 2 / 2;
+  grid-row: 3 / 3;
   white-space: pre-wrap;
+  align-self: start;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
-
 .price-container {
-  grid-column: 3 / 4;
+  grid-column: 2 / 2;
   grid-row: 1 / 2;
 }
 
 .button-container {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
+  grid-column: 2 / 2;
+  grid-row: 2 / 2;
   align-self: start;
 }
 
 .buy-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    background: var(--color-grey-100);
-    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
-    color: var(--color-grey-300);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    border: none;
-    outline: none;
-  }
-  
-  .buy-btn:hover {
-    background-color: var(--color-contrast-main);
-    box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
-    color: white;
-  }
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--color-grey-100);
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  color: var(--color-contrast-main);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  border: none;
+  outline: none;
+}
+
+.buy-btn:hover {
+  background-color: var(--color-contrast-main);
+  box-shadow: 3px 3px 3px var(--color-grey-200), -3px -3px 3px white;
+  color: white;
+}
 
 .product-price {
   font-size: 1.5rem;
@@ -78,4 +81,3 @@
   -moz-text-fill-color: transparent;
   animation: gradientBackgroundMove 3s linear infinite alternate;
 } */
-

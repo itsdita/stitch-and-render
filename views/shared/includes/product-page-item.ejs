@@ -10,9 +10,6 @@
       <div class="price-container">
         <p class="product-price">$<%= product.price.toFixed(2) %></p>
       </div>
-      <div class="summary-container">
-        <p><%= product.summary %></p>
-      </div>
       <div class="description-container">
         <p><%= product.description %></p>
       </div>
@@ -22,7 +19,7 @@
           data-productid="<%= product.id %>"
           data-csrf="<%= locals.csrfToken %>"
         >
-          buy
+          add to cart
         </button>
       </div>
     </div>

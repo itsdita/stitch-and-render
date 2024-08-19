@@ -18,6 +18,7 @@
       action="/posts/<%= post._id %>/delete"
       method="POST"
     >
+    <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
       <button class="blog-btn">delete</button>
     </form>
   </div>
