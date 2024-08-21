@@ -40,12 +40,13 @@ class Cart {
 
         this.totalQuantity = this.totalQuantity + quantityChange;
         this.totalPrice += quantityChange * product.price;
-        return;
+        return {updatedItemPrice: cartItem.totalPrice};
       } else if (item.product.id === productId && newQuantity <= 0) {
         this.items.splice(i, 1); //method for removing an item from an array
 
         this.totalQuantity -= item.quantity;
         this.totalPrice -= item.totalPrice;
+        return {updatedItemPrice: 0};
       }
     }
   }
