@@ -11,7 +11,7 @@
     </section>
     <div id="cart-container">
         <div id="cart-total-price">
-          <p>total: $<%= locals.cart.totalPrice.toFixed(2) %> </p>
+          <p>total: $<span class="cart-ttl-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
         </div>
         <div id="cart-total-order">
             <button class="basic-btn" id="order-btn">order now</button>
@@ -26,7 +26,7 @@
                             </div>
                             <div class="cart-item-details">
                                 <h2><%= cartItem.product.title %></h2>
-                                <p>price: $<%= cartItem.totalPrice.toFixed(2) %></p>
+                                <p>price: $<span class="cart-itm-ttl-price"><%= cartItem.totalPrice.toFixed(2) %></span></p>
                                 <p>quantity:</p>
                                 <div class="cart-item-update">
                                     <form class="cart-item-managemenet" data-productid="<%= cartItem.product.id %>" data-csrf="<%= locals.csrfToken  %>">
