@@ -15,7 +15,8 @@
   gap: 20px;
 }
 
-#product-edit-del-btn {
+#product-edit-del-btn,
+#product-view-buy-btn {
   display: flex;
   justify-content: space-between;
   gap: 10px;
@@ -23,10 +24,15 @@
 
 #admin-products .basic-btn,
 #add-product .basic-btn,
-#product-edit-del-btn .basic-btn {
+#product-edit-del-btn .basic-btn,
+#product-view-buy-btn .basic-btn {
   display: flex;
   justify-content: center;
   padding: 0;
+  font-size: 1rem;
+}
+#product-view-buy-btn .basic-btn {
+  padding: 10px;
 }
 
 #admin-products a,
@@ -89,4 +95,4 @@
   grid-auto-rows: minmax(187px, auto);
   grid-template-columns: repeat(4, minmax(100px, 660px));
   gap: 10px;
-}
+} 

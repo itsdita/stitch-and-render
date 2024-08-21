@@ -21,7 +21,10 @@
   </div>
   <% } %>
   <div class="nav-item">
-    <a href="/cart">cart<span class="badge">0</span></a>
+    <a href="/cart">cart
+      <% if (cart){ %>
+      <span class="badge">0</span></a>
+      <% } %>
   </div>
   <% if (locals.isAuth || locals.isAdmin) {%>
   <div class="nav-item">
