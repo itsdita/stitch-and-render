@@ -23,7 +23,7 @@
   <div class="nav-item">
     <a href="/cart">cart
       <% if (cart){ %>
-      <span class="badge">0</span></a>
+      <span class="badge"><%= locals.cart.totalQuantity %></span></a>
       <% } %>
   </div>
   <% if (locals.isAuth || locals.isAdmin) {%>

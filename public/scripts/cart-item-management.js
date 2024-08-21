@@ -6,10 +6,11 @@ async function updateCartItem(event) {
   event.preventDefault();
 
   const form = event.target;
+  const quantityElement = form.children[2].children[1];
 
   const productId = form.dataset.productid;
   const csrf = form.dataset.csrf;
-  const quantity = form.firstElementChild.value;
+  const quantity = quantityElement.value;
 
   let response;
 
@@ -18,33 +19,33 @@ async function updateCartItem(event) {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "CSRF-Token": csrf,
       },
       body: JSON.stringify({
         productId: productId,
         quantity: quantity,
-        _csrf: csrfToken,
+        _csrf: csrf,
       }),
     });
+    console.log(response);
   } catch (error) {
     alert("An error occurred while updating the cart item. Please try again.");
     return;
   }
-  if (!response) {
+  if (!response.ok) {
     alert("An error occurred while updating the cart item. Please try again.");
     return;
   }
 
   const responseData = await response.json();
 
-  const cartItemTotalPriceElement = document.querySelector(".cart-item-total-price");
+  const cartItemTotalPriceElement = form.children[1].children[1];
   cartItemTotalPriceElement.textContent =
-    responseData.updatedCartItem.updatedItemPrice.toFixed(2);
-  const cartTotalPriceElement = document.querySelector(".cart-ttl-price");
+    responseData.updatedCartData.updatedItemPrice.toFixed(2);
+  const cartTotalPriceElement = document.querySelector(".cart-total-price");
   cartTotalPriceElement.textContent =
-    responseData.updatedCartItem.newTotalPrice.toFixed(2);
+    responseData.updatedCartData.newTotalPrice.toFixed(2);
   const cartBadge = document.querySelector(".badge");
-  cartBadge.textContent = responseData.updatedCartItem.newTotalQuantity;
+  cartBadge.textContent = responseData.updatedCartData.newTotalQuantity;
 }
 
 for (const formElement of cartItemUpdateFormElements) {

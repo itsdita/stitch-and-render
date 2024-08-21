@@ -1,7 +1,7 @@
 <%- include ("includes/head", { title: "3D Fashion Shop"})%>
 <link href="/styles/products.css" rel="stylesheet" />
 <link href="/styles/cart.css" rel="stylesheet" /> 
-<script src="/scripts/cart-item-managemenet.js" defer></script> 
+<script src="/scripts/cart-item-management.js" defer></script> 
   </head>
 
   <body>
@@ -10,46 +10,43 @@
       <h1>your cart..</h1>
     </section>
     <div id="cart-container">
-        <div id="cart-total-price">
-          <p>total: $<span class="cart-ttl-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
+        <div id="cart-total">
+            <div id="cart-total-price">
+              <p>total: $<span class="cart-total-price"><%= locals.cart.totalPrice.toFixed(2) %></span></p>
+            </div>
+            <div id="cart-total-order">
+                <button class="basic-btn" id="order-btn">order now</button>
+            </div>
         </div>
-        <div id="cart-total-order">
-            <button class="basic-btn" id="order-btn">order now</button>
-        </div>
-        <div id="cart-items">
-                <% for (const cartItem of locals.cart.items) { %>
-                <div>
-                    <div class="cart-item">
-                        <div class="cart-item-info">
-                            <div class="image-container">
-                                <img src="<%= cartItem.product.imageUrl  %>" alt="<%= cartItem.product.title %>" />
-                            </div>
-                            <div class="cart-item-details">
-                                <h2><%= cartItem.product.title %></h2>
-                                <p>price: $<span class="cart-itm-ttl-price"><%= cartItem.totalPrice.toFixed(2) %></span></p>
-                                <p>quantity:</p>
-                                <div class="cart-item-update">
-                                    <form class="cart-item-managemenet" data-productid="<%= cartItem.product.id %>" data-csrf="<%= locals.csrfToken  %>">
-                                        <input type="number" value="<%= cartItem.quantity %>" required>
-                                        <button class="basic-btn">
-                                        <a href="/shop/<%= cartItem.product.id%>">edit</a>
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="cart-item-remove">
-                                    <button
-                                    class="basic-btn remove-from-cart"
-                                    data-productid="<%= cartItem.product.id %>"
-                                    data-csrf="<%= locals.csrfToken %>"
-                                    >
-                                    remove
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div id="cart-item-details">
+            <% for (const cartItem of locals.cart.items) { %>
+            <div class="cart-item">
+                <div class="image-container">
+                    <img src="<%= cartItem.product.imageUrl  %>" alt="<%= cartItem.product.title %>" />
                 </div>
-                <% } %>
+                <div class="cart-item-details">
+                    <form class="cart-item-managemenet" data-productid="<%= cartItem.product.id %>" data-csrf="<%= locals.csrfToken  %>">
+                        <h2><%= cartItem.product.title %></h2>
+                        <div class="cart-item-price">
+                            <p>price: $</p>
+                            <span class="cart-item-total-price"><%= cartItem.totalPrice.toFixed(2) %></span>
+                        </div>
+                        <div class="cart-item-quantity">
+                            <p>quantity:</p>
+                            <input type="number" class="cart-item-quantity-input" value="<%= cartItem.quantity %>" required>
+                        </div>
+                        <button class="basic-btn">update</button>
+                        <button
+                            class="basic-btn remove-from-cart"
+                            data-productid="<%= cartItem.product.id %>"
+                            data-csrf="<%= locals.csrfToken %>"
+                        >
+                        remove
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <% } %>
         </div>
     </div>
     <%- include ("includes/footer") %>   

@@ -41,6 +41,7 @@ class Cart {
         this.totalQuantity = this.totalQuantity + quantityChange;
         this.totalPrice += quantityChange * item.product.price;
         return {updatedItemPrice: cartItem.totalPrice};
+
       } else if (item.product.id === productId && newQuantity <= 0) {
         this.items.splice(i, 1); //method for removing an item from an array
 
