@@ -28,7 +28,7 @@
                                 <h2><%= cartItem.product.title %></h2>
                                 <p>price: $<%= cartItem.totalPrice.toFixed(2) %></p>
                                 <div class="cart-item-update">
-                                    <form>
+                                    <form class="cart-item-managemenet">
                                         <p>quantity: <input type="number" value="<%= cartItem.quantity %>" required></p>
                                         <button class="basic-btn">
                                         <a href="/shop/<%= cartItem.product.id%>">edit</a>
