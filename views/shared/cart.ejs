@@ -27,9 +27,10 @@
                             <div class="cart-item-details">
                                 <h2><%= cartItem.product.title %></h2>
                                 <p>price: $<%= cartItem.totalPrice.toFixed(2) %></p>
+                                <p>quantity:</p>
                                 <div class="cart-item-update">
                                     <form class="cart-item-managemenet" data-productid="<%= cartItem.product.id %>" data-csrf="<%= locals.csrfToken  %>">
-                                        <p>quantity: <input type="number" value="<%= cartItem.quantity %>" required></p>
+                                        <input type="number" value="<%= cartItem.quantity %>" required>
                                         <button class="basic-btn">
                                         <a href="/shop/<%= cartItem.product.id%>">edit</a>
                                         </button>
