@@ -29,20 +29,24 @@
                         <h2><%= cartItem.product.title %></h2>
                         <div class="cart-item-price">
                             <p>price: $</p>
-                            <span class="cart-item-total-price"><%= cartItem.totalPrice.toFixed(2) %></span>
+                            <span class="cart-item-total-price"><%= cartItem.totalPrice.toFixed(2) %></spa>
                         </div>
                         <div class="cart-item-quantity">
                             <p>quantity:</p>
                             <input type="number" class="cart-item-quantity-input" value="<%= cartItem.quantity %>" required>
                         </div>
-                        <button class="basic-btn">update</button>
-                        <button
-                            class="basic-btn remove-from-cart"
-                            data-productid="<%= cartItem.product.id %>"
-                            data-csrf="<%= locals.csrfToken %>"
-                        >
-                        remove
-                        </button>
+                        <div class="cart-buttons">
+                            <button type="submit" class="basic-btn">update</button>
+                            <button
+                                type="delete"
+                                class="basic-btn"
+                                data-productid="<%= cartItem.product.id %>"
+                                data-csrf="<%= locals.csrfToken %>"
+                            >
+                            remove
+                            </button>   
+                        </div>
+                        
                     </form>
                 </div>
             </div>
