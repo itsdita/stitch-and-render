@@ -1,6 +1,7 @@
 <%- include ("includes/head", { title: "3D Fashion Shop"})%>
 <link href="/styles/products.css" rel="stylesheet" />
-<link href="/styles/cart.css" rel="stylesheet" />  
+<link href="/styles/cart.css" rel="stylesheet" /> 
+<script src="/scripts/cart-item-managemenet.js" defer></script> 
   </head>
 
   <body>
@@ -26,11 +27,15 @@
                             <div class="cart-item-details">
                                 <h2><%= cartItem.product.title %></h2>
                                 <p>price: $<%= cartItem.totalPrice.toFixed(2) %></p>
-                                <p>quantity: <%= cartItem.quantity %></p>
-                                <div class="cart-item-edit">
-                                    <button class="basic-btn">
-                                    <a href="/shop/<%= cartItem.product.id%>">edit</a>
-                                    </button>
+                                <div class="cart-item-update">
+                                    <form>
+                                        <p>quantity: <input type="number" value="<%= cartItem.quantity %>" required></p>
+                                        <button class="basic-btn">
+                                        <a href="/shop/<%= cartItem.product.id%>">edit</a>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="cart-item-remove">
                                     <button
                                     class="basic-btn remove-from-cart"
                                     data-productid="<%= cartItem.product.id %>"
